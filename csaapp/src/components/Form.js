@@ -1,24 +1,24 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 // default react
-class Form extends Component {
-  constructor() {
-    super();
-    this.state = {text: ''}
+const Form = (props) => {
+
+  const [fires, newFire] = useState([])
+  const _onSubmit = (newFire) => {
+
+    this.state.setState({fires: [...props.fires, newFire]})
   }
-  //  is used to create the <div> which the chart will be displayed inside of.
-  render() {
-    const _onSubmit = (text) => {
-      this.state.setState({text:text})
-    }
-    return (
-      <form>
-        <input onSubmit={_onSubmit} />
+  return(
+      <form onSubmit={_onSubmit} >
+        <input />
+        <input />
         <div>{this.state.text? this.state.text : 'Submit A Fire'}</div>
       </form>
-    );
-  }
+  )
 }
 
+const styles = {
+
+}
 
 export default Form;

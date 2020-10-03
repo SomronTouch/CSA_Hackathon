@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import './App.css';
 import Map from './components/Map'
-import SubmitAFire from './components/Form'
+//import SubmitAFire from './components/Form'
 
 // default react
 class App extends Component {
@@ -11,7 +10,7 @@ class App extends Component {
     return (
       <div className='container' style={styles.container}>
         <Map/>
-        <SubmitAFire/>
+      
       </div>
     );
   }
