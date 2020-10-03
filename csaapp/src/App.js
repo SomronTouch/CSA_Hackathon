@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Map from './components/Map'
+//import Table from './components/Table';
 //import SubmitAFire from './components/Form'
 
 // default react
@@ -10,7 +11,6 @@ class App extends Component {
     return (
       <div className='container' style={styles.container}>
         <Map/>
-      
       </div>
     );
   }
