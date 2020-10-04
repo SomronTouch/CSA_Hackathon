@@ -26,8 +26,8 @@ class DataClean:
     @staticmethod
     def rem_duplicate_area(dataframe):
         # truncating to 2 decimals
-        dataframe.Latitude = np.trunc(100 * dataframe.Latitude) / 100
-        dataframe.Longitude = np.trunc(100 * dataframe.Longitude) / 100
+        dataframe.Latitude = np.trunc(10 * dataframe.Latitude) / 10
+        dataframe.Longitude = np.trunc(10 * dataframe.Longitude) / 10
 
         dataframe = dataframe.groupby(["Latitude", "Longitude"]).mean().reset_index()
 

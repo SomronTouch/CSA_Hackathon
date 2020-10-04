@@ -29,7 +29,7 @@ def read_filter_file(file_name, file_dir, la_range, lo_range):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     file_dir = Path("C:\\Users\Abby\Documents\GitHub\CSA_Hackathon\Analysis\Data\TrainDataset\MOPITT")
-    output_dir = Path("C:\\Users\Abby\Documents\GitHub\CSA_Hackathon\Analysis\Data\TrainDataset\CleanDataset\MOPITT")
+    output_dir = Path("C:\\Users\Abby\Documents\GitHub\CSA_Hackathon\Analysis\ProcessData\CleanDataset\MOPITT")
     fname_pre = "MOP02J-"
     fname_suf = "-L2V18.0.3.csv"
 
