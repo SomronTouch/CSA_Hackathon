@@ -10,7 +10,7 @@ export default function Header() {
         <Nav className="mr-auto" >
           <LinkContainer to="/"><Button>Live Map</Button></LinkContainer>
           <LinkContainer to="/about"><Button>About</Button></LinkContainer>
-          <LinkContainer to="/activeFires"><Button>Active Fires</Button></LinkContainer>
+          <LinkContainer to="/activeFires"><Button>Regions Risks</Button></LinkContainer>
         </Nav>
       </Navbar>
     </Navbar>
