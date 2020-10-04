@@ -28,7 +28,7 @@ def read_filter_file(file_name, file_dir, la_range, lo_range):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    file_dir = Path("C:\\Users\Abby\Documents\GitHub\CSA_Hackathon\Analysis\Data\TrainDataset\MOPITT")
+    file_dir = [Path("C:\\Users\Abby\Documents\GitHub\CSA_Hackathon\Analysis\Data\TrainDataset\MOPITT")]
     output_dir = Path("C:\\Users\Abby\Documents\GitHub\CSA_Hackathon\Analysis\ProcessData\CleanDataset\MOPITT")
     fname_pre = "MOP02J-"
     fname_suf = "-L2V18.0.3.csv"
@@ -68,13 +68,6 @@ if __name__ == '__main__':
         # clear monthly data from dataframe
         df_month.iloc[0:0]
 
-    # data = read_file(fname_pre + d.strftime("%Y%m%d") + fname_suf, file_dir)
-    # print(data)
-
-    # la_range = [42.0, 84.0]
-    # lo_range = [-142.0, -52.0]
-
-    # dataClean = DataClean()
     # df = pd.read_csv(os.path.join(file_dir, os.path.basename(file_name)))
     # df = dataClean.filter_coordinate(df, la_range, lo_range)
     # df = dataClean.rem_duplicate_area(df)
