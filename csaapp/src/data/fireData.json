@@ -13,8 +13,26 @@
       "isCurrentOnFire": true,
       "reportOnFire": false
     },
-    {
-      "location": [50.7414,-88.4176],
+    { 
+      "location": [60,-77.5454],
+      "risk": 8,
+      "isCurrentOnFire": true,
+      "reportOnFire": false
+    },
+    { 
+      "location": [77,-110.5454],
+      "risk": 8,
+      "isCurrentOnFire": true,
+      "reportOnFire": false
+    },
+    { 
+      "location": [53,-130.5454],
+      "risk": 8,
+      "isCurrentOnFire": true,
+      "reportOnFire": false
+    },
+    { 
+      "location": [55,-90.5454],
       "risk": 8,
       "isCurrentOnFire": true,
       "reportOnFire": false
