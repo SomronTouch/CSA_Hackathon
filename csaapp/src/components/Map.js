@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4maps from "@amcharts/amcharts4/maps";
 import canada from "@amcharts/amcharts4-geodata/region/canada/canadaCountiesHigh";
@@ -41,11 +42,9 @@ class Map extends Component {
     if (this.props.fires) {
       imageSeries.data = this.props.fires.map((fire) => { return {"longitude": fire.location[1], "latitude": fire.location[0], "title": 'fire'}})
     }
-
-    // console.log(imageSeries.data)
-
+    console.log(this.props.fires)
+    console.log(imageSeries.data)
     template.propertyFields.fill = "fill";
-
   }
 
   // is used to cleanup the chart when it's done being used.

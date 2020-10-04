@@ -2,13 +2,19 @@
   "fires":
   [
     {
-    "location": [19.6929,-25.9254],
+    "location": [74.7414,-88.4176],
     "risk": 8,
     "isCurrentOnFire": true,
     "reportOnFire": false
     },
     { 
       "location": [20.4315,-27.5454],
+      "risk": 8,
+      "isCurrentOnFire": true,
+      "reportOnFire": false
+    },
+    {
+      "location": [50.7414,-88.4176],
       "risk": 8,
       "isCurrentOnFire": true,
       "reportOnFire": false
