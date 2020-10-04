@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Header from './components/Header'
 import About from './components/About'
 import Map from './components/Map'
+import Table2 from './components/Table2'
 
 import {
   MemoryRouter as Router,
@@ -28,20 +29,23 @@ export default function App(){
   }, [fires])
 
   return(
-      <Router>
-        <div style={styles}>
-          <Header/>
-          <Switch>
-            <Route exact path="/">
-            {!isLoading && <Map fires={fires}/>}
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
-    );
+    <Router>
+      <div style={styles}>
+        <Header/>
+        <Switch>
+          <Route exact path="/">
+          {!isLoading && <Map fires={fires}/>}
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+    <Route path="/activeFires">
+            <Table2 />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
 }
 
 
