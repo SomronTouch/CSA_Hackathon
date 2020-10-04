@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4maps from "@amcharts/amcharts4/maps";
 import canada from "@amcharts/amcharts4-geodata/region/canada/canadaCountiesHigh";
-import fires from "./mock"
 
 
 
@@ -24,15 +23,27 @@ class Map extends Component {
      var highlight = template.states.create("hover")
      highlight.properties.fill = am4core.color("#367B25");
 
-     series.data = [{
-        "latitude": 49.282729,
-        "longitude": -123.120738,
-        "id": "3506",
-        "name": "Ottawa",
-        "value": 100,
-        "fill": am4core.color("red"),
-        "flag": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-160/pin_france.png",
-     }];
+    var imageSeries = chart.series.push(new am4maps.MapImageSeries());
+
+    var imageSeriesTemplate = imageSeries.mapImages.template;
+    var marker = imageSeriesTemplate.createChild(am4core.Image);
+    marker.href = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-160/marker.svg";
+    marker.width = 20;
+    marker.height = 20;
+    marker.nonScaling = true;
+    marker.tooltipText = "{title}";
+    marker.horizontalCenter = "middle";
+    marker.verticalCenter = "bottom";
+
+    // Set property fields
+    imageSeriesTemplate.propertyFields.latitude = "latitude";
+    imageSeriesTemplate.propertyFields.longitude = "longitude";
+
+    imageSeries.data = [{
+      "latitude": 49.282729,
+      "longitude": -123.120738,
+      "title": "Vancouver"
+    }];
 
      template.propertyFields.fill = "fill";
 
