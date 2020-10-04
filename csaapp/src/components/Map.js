@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4maps from "@amcharts/amcharts4/maps";
 import canada from "@amcharts/amcharts4-geodata/region/canada/canadaCountiesHigh";
+import fires from "./mock"
 
 
 
@@ -22,6 +23,19 @@ class Map extends Component {
      template.fill = am4core.color("#74B266")
      var highlight = template.states.create("hover")
      highlight.properties.fill = am4core.color("#367B25");
+
+     series.data = [{
+        "latitude": 49.282729,
+        "longitude": -123.120738,
+        "id": "3506",
+        "name": "Ottawa",
+        "value": 100,
+        "fill": am4core.color("red"),
+        "flag": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-160/pin_france.png",
+     }];
+
+     template.propertyFields.fill = "fill";
+
   }
 
   // is used to cleanup the chart when it's done being used.
