@@ -22,7 +22,20 @@ class Map extends Component {
      template.fill = am4core.color("#74B266")
      var highlight = template.states.create("hover")
      highlight.properties.fill = am4core.color("#367B25");
-  }
+
+     canada.fires.forEach(fire => {    
+       canada.region.forEach(region => {         
+         if (inside(fire.location, region.MapPolygonSeries)) {           
+           if (fire.isCurrentOnFire){            
+             template.tooltipText.append('\n IS ON FIRE')           
+            }           
+            if (fire.risk){             
+              region.fill.append(fire.riskcolor)            
+            }         
+          }        
+        })
+      } 
+     )}
 
   // is used to cleanup the chart when it's done being used.
   componentWillUnmount() {
