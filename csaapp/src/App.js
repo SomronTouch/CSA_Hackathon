@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from './components/Header'
 import About from './components/About'
 import Map from './components/Map'
@@ -12,34 +12,29 @@ import {
 import getFires from './data/getFires'
 
 // default react
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      "fires":
-      [
-        {
-        "location": [19.6929,-25.9254],
-        "risk": 8,
-        "isCurrentOnFire": true,
-        "reportOnFire": false
-        }
-      ]
-    }
-  }
+export default function App(){
+  const [fires, setNewFire] = useState(
+    [
+      {
+      "location": [49.282729,-123.120738],
+      "risk": 8,
+      "isCurrentOnFire": true,
+      "reportOnFire": false
+      }
+    ])
 
-  async componentDidMount() {
-    this.setState({fires: await getFires()})
-  }
+  useEffect(() => {
+    const fires = async () => await getFires()
+    setNewFire(fires)
+  }, [])
 
-  render() {
-    return (
+  return(
       <Router>
         <div style={styles}>
           <Header/>
           <Switch>
             <Route exact path="/">
-              <Map/>
+              <Map fires={fires}/>
             </Route>
             <Route path="/about">
               <About />
@@ -48,7 +43,6 @@ class App extends Component {
         </div>
       </Router>
     );
-  }
 }
 
 
@@ -56,6 +50,3 @@ const styles = {
   width: "100%",
   textAlign: 'middle'
 }
-
-
-export default App;
