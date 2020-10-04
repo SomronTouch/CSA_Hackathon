@@ -27,7 +27,7 @@ class Map extends Component {
 
     var imageSeriesTemplate = imageSeries.mapImages.template;
     var marker = imageSeriesTemplate.createChild(am4core.Image);
-    marker.href = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-160/marker.svg";
+    marker.href = "https://upload.wikimedia.org/wikipedia/commons/5/56/Pok%C3%A9mon_Fire_Type_Icon.svg" ;
     marker.width = 20;
     marker.height = 20;
     marker.nonScaling = true;
@@ -38,14 +38,13 @@ class Map extends Component {
     // Set property fields
     imageSeriesTemplate.propertyFields.latitude = "latitude";
     imageSeriesTemplate.propertyFields.longitude = "longitude";
+    if (this.props.fires) {
+      imageSeries.data = this.props.fires.map((fire) => { return {"longitude": fire.location[1], "latitude": fire.location[0], "title": 'fire'}})
+    }
 
-    imageSeries.data = [{
-      "latitude": 49.282729,
-      "longitude": -123.120738,
-      "title": "Vancouver"
-    }];
+    // console.log(imageSeries.data)
 
-     template.propertyFields.fill = "fill";
+    template.propertyFields.fill = "fill";
 
   }
 
