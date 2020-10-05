@@ -1,4 +1,4 @@
-# for cleaning data
+# for processing & cleaning data
 # created by abby sun
 # date: 2020-10-03
 # last edited: abby sun, 2020-10-04
@@ -9,11 +9,14 @@ import pandas as pd
 
 class DataClean:
 
+    # datasets gathered can have trailing spaces or inconsistent naming convention
+    # this method cleans it up
     @staticmethod
     def clean_column_name(dataframe):
         dataframe.columns = dataframe.columns.str.strip().str.replace('# ', '').str.replace(' ', '_')
         return dataframe
 
+    # this method filters through a dataframe and grabs a subset of data based on given range of latitude & longitude
     @staticmethod
     def filter_coordinate(dataframe, la_range, lo_range):
         DataClean.clean_column_name(dataframe)
@@ -23,6 +26,7 @@ class DataClean:
         dataframe = dataframe[in_range]
         return dataframe
 
+    # this method removes duplicated records with the same coordinates and use their average as the new record value
     @staticmethod
     def rem_duplicate_area(dataframe):
         # truncating to 2 decimals
@@ -32,6 +36,8 @@ class DataClean:
         dataframe = dataframe.groupby(["Latitude", "Longitude"]).mean().reset_index()
         return dataframe
 
+    # this method filters out empty records and only returns populated rows
+    # index/keys should not be used to evaluate whether each row is populated (Ex: id, coordinates, etc)
     @staticmethod
     def active_records(dataframe, columns):
         df_mask = False

@@ -1,4 +1,5 @@
 # filtering for none empty data in Other data folder as well as update column names to match naming convention
+# Data: Harshdeep Verma gathered & transformed these files from NASA
 # created by abby sun
 # date: 2020-10-04
 # last edited: abby sun, 2020-10-04

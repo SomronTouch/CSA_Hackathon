@@ -9,7 +9,7 @@ import pandas as pd
 import os
 from DataClean import DataClean
 
-
+# variable definition
 file_dir = Path("C:\\Users\Abby\Documents\GitHub\CSA_Hackathon\Analysis\Data\TrainDataset\MOPITT")
 output_dir = Path("C:\\Users\Abby\Documents\GitHub\CSA_Hackathon\Analysis\ProcessData\CleanDataset\MOPITT")
 fname_pre = "MOP02J-"
@@ -30,11 +30,13 @@ la_range = [42.0, 84.0]
 lo_range = [-142.0, -52.0]
 
 
+# return list of date objects within the given date range
 def get_date(sdate, edate):
     dr = pd.date_range(start=sdate, end=edate)
     return dr
 
 
+# reads file & return sample dataset based on given range of coordinates
 def read_filter_file(file_name, file_dir, la_range, lo_range):
     try:
         print("Reading file: " + file_name)
@@ -47,10 +49,13 @@ def read_filter_file(file_name, file_dir, la_range, lo_range):
         return df
 
 
+# for every month
 for r in daterange:
     df_month = pd.DataFrame()
     month = ""
     date = get_date(r[0], r[1])
+
+    # for every day in this month, read daily file and append them together to for a monthly dataset
     for d in date:
         month = d.strftime("%b")
         data = read_filter_file(fname_pre + d.strftime("%Y%m%d") + fname_suf, file_dir, la_range, lo_range)
@@ -67,5 +72,5 @@ for r in daterange:
     print("Clean data and export to csv file\n")
     df_month.to_csv(os.path.join(output_dir, os.path.basename("MOPITT2019_" + month + ".csv")), index=False)
 
-    # clear monthly data from dataframe
+    # clear monthly data from dataframe in preparation for new month
     df_month.iloc[0:0]
