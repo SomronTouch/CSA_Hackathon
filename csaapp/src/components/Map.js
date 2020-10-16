@@ -5,8 +5,6 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4maps from "@amcharts/amcharts4/maps";
 import canada from "@amcharts/amcharts4-geodata/region/canada/canadaCountiesHigh";
 
-
-
 // default react
 class Map extends Component {
 

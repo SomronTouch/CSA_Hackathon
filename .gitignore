@@ -92,3 +92,6 @@ dmypy.json
 
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
+
+# Extra Data
+/Analysis/Data
