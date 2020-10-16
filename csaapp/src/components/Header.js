@@ -2,7 +2,7 @@ import React from "react"
 import { LinkContainer } from 'react-router-bootstrap';
 import { Button, Navbar, Nav } from 'react-bootstrap'
 
-//import header contents
+//import header contents and create link to table database
 export default function Header() {
   return (
     <Navbar bg="light" expand="lg">
